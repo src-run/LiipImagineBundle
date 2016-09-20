@@ -13,8 +13,8 @@ enabled:
   - long_array_syntax
 
 finder :
-  name    : [ "*.php", "*.twig" ]
-  exclude : [ "vendor", "var" ]
-  path    : [ "./" ]
+  name    : [ '*.php', '*.twig' ]
+  exclude : [ 'vendor', 'var' ]
+  path    : [ '.' ]
 
 ...

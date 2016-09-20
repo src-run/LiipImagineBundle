@@ -1,0 +1,4 @@
+---
+
+coverage_clover : var/clover.xml
+json_path       : var/coveralls.json

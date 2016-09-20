@@ -5,3 +5,4 @@ composer.phar
 vendor/
 Tests/Functional/app/web/media/cache
 .idea/
+var/
