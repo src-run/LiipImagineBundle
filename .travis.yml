@@ -19,24 +19,25 @@ cache:
 
 env:
   - SYMFONY_VERSION=2.7.*
+  - secure: "C+KNzaf2hpM7w5zrtMPOvV31+k/ZMR2+FvFf4xyyo5NqWzDbPKNKtepnmTcP5TfTpqN+KipLIM42ZyvbLRq9s4cLQeJ9XiyOmVM9BgdyGjeAG+4kZWoJDqhWSXLQPcnJO5mY2o3mI62kJEEXLdXe+DauMekurd8Lhw6iHZ6bEQM="
 
 matrix:
   include:
-    - php: 5.6
-      env: SYMFONY_VERSION=2.3.*
-    - php: 5.6
-      env: SYMFONY_VERSION=2.8.*@dev
-    - php: 5.6
-      env: SYMFONY_VERSION=3.0.*@dev
-    - php: 5.6
-      env: SYMFONY_VERSION=3.1.*@dev
-    - php: 7.0
-      env: SYMFONY_VERSION=3.2.x-dev
     - php: 5.3
       env: COMPOSER_FLAGS="--prefer-lowest"
+    - php: 5.6
+      env: SYMFONY_VERSION=2.3.*
+    - php: 7.0
+      env: SYMFONY_VERSION=2.8.*@dev
+    - php: 7.0
+      env: SYMFONY_VERSION=3.0.*@dev
+    - php: 7.0
+      env: SYMFONY_VERSION=3.1.*@dev
+    - php: 7.0
+      env: SYMFONY_VERSION=3.2.*@dev
   allow_failures:
     - php: 7.0
-      env: SYMFONY_VERSION=3.2.x-dev
+      env: SYMFONY_VERSION=3.2.*@dev
 
 before_install:
   - composer self-update
@@ -53,6 +54,9 @@ script:
   - bin/phpunit -vvv
 
 after_script:
+  - if [ "${TRAVIS_PHP_VERSION}" == "7.0" ]; then composer require --dev codacy/coverage:~1.0 --no-update; composer require --dev satooshi/php-coveralls:~1.0; fi;
+  - bin/codacycoverage -vvv clover var/clover.xml
   - bin/coveralls -vvv
+
 
 ...
