@@ -18,8 +18,9 @@ cache:
     - $HOME/.composer/cache/files
 
 env:
-  - SYMFONY_VERSION=2.7.*
-  - secure: "C+KNzaf2hpM7w5zrtMPOvV31+k/ZMR2+FvFf4xyyo5NqWzDbPKNKtepnmTcP5TfTpqN+KipLIM42ZyvbLRq9s4cLQeJ9XiyOmVM9BgdyGjeAG+4kZWoJDqhWSXLQPcnJO5mY2o3mI62kJEEXLdXe+DauMekurd8Lhw6iHZ6bEQM="
+  global:
+    - SYMFONY_VERSION=2.7.*
+    - secure: "C+KNzaf2hpM7w5zrtMPOvV31+k/ZMR2+FvFf4xyyo5NqWzDbPKNKtepnmTcP5TfTpqN+KipLIM42ZyvbLRq9s4cLQeJ9XiyOmVM9BgdyGjeAG+4kZWoJDqhWSXLQPcnJO5mY2o3mI62kJEEXLdXe+DauMekurd8Lhw6iHZ6bEQM="
 
 matrix:
   include:
