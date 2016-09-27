@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of the `liip/LiipImagineBundle` project.
+ *
+ * (c) https://github.com/liip/LiipImagineBundle/graphs/contributors
+ *
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Liip\ImagineBundle\Binary\Loader;
 
+use Liip\ImagineBundle\Exception\Binary\Loader\NotLoadableException;
 use Liip\ImagineBundle\Exception\InvalidArgumentException;
 use Liip\ImagineBundle\Model\FileBinary;
 use Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserInterface;
 use Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesserInterface;
-use Liip\ImagineBundle\Exception\Binary\Loader\NotLoadableException;
 
 class FileSystemLoader implements LoaderInterface
 {
@@ -38,7 +47,7 @@ class FileSystemLoader implements LoaderInterface
         $this->mimeTypeGuesser = $mimeTypeGuesser;
         $this->extensionGuesser = $extensionGuesser;
 
-        if (!($realRootPath = realpath($rootPath))) {
+        if (empty($rootPath) || !($realRootPath = realpath($rootPath))) {
             throw new InvalidArgumentException(sprintf('Root image path not resolvable "%s"', $rootPath));
         }
 
@@ -50,16 +59,12 @@ class FileSystemLoader implements LoaderInterface
      */
     public function find($path)
     {
-        if (!($absolutePath = realpath($this->rootPath.DIRECTORY_SEPARATOR.ltrim($path, DIRECTORY_SEPARATOR)))) {
+        if (!($absolutePath = realpath($this->rootPath.DIRECTORY_SEPARATOR.$path))) {
             throw new NotLoadableException(sprintf('Source image not resolvable "%s"', $path));
         }
 
         if (0 !== strpos($absolutePath, $this->rootPath)) {
             throw new NotLoadableException(sprintf('Source image invalid "%s" as it is outside of the defined root path', $absolutePath));
-        }
-
-        if (false == file_exists($absolutePath)) {
-            throw new NotLoadableException(sprintf('Source image not found in "%s"', $absolutePath));
         }
 
         $mimeType = $this->mimeTypeGuesser->guess($absolutePath);

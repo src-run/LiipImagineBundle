@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the `liip/LiipImagineBundle` project.
+ *
+ * (c) https://github.com/liip/LiipImagineBundle/graphs/contributors
+ *
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Liip\ImagineBundle\Tests\Filter;
 
 use Imagine\Image\Box;
@@ -34,7 +43,7 @@ class DownscaleFilterLoaderTest extends AbstractTest
             })
         ;
 
-        $loader->load($image, array('max' => array(100, 100)));
+        $loader->load($image, array('max' => array(100, 90)));
 
         return array($initialSize, $resultSize);
     }
@@ -56,6 +65,6 @@ class DownscaleFilterLoaderTest extends AbstractTest
     {
         list($initialSize, $resultSize) = $sizes;
         $this->assertLessThanOrEqual(100, $resultSize->getHeight());
-        $this->assertLessThanOrEqual(100, $resultSize->getWidth());
+        $this->assertLessThanOrEqual(90, $resultSize->getWidth());
     }
 }

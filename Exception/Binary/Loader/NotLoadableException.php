@@ -1,9 +1,36 @@
 <?php
 
+/*
+ * This file is part of the `liip/LiipImagineBundle` project.
+ *
+ * (c) https://github.com/liip/LiipImagineBundle/graphs/contributors
+ *
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Liip\ImagineBundle\Exception\Binary\Loader;
 
 use Liip\ImagineBundle\Exception\ExceptionInterface;
 
 class NotLoadableException extends \RuntimeException implements ExceptionInterface
 {
+
+    protected $defaultImageUrl = null;
+
+    public function setDefaultImageUrl($defaultImageUrl)
+    {
+        $this->defaultImageUrl = $defaultImageUrl;
+    }
+
+    public function getDefaultImageUrl()
+    {
+        return $this->defaultImageUrl;
+    }
+
+    public function hasDefaultImageUrl()
+    {
+        return null !== $this->defaultImageUrl;
+    }
+
 }

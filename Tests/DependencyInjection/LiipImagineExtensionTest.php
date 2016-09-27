@@ -1,16 +1,25 @@
 <?php
 
+/*
+ * This file is part of the `liip/LiipImagineBundle` project.
+ *
+ * (c) https://github.com/liip/LiipImagineBundle/graphs/contributors
+ *
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Liip\ImagineBundle\Tests\DependencyInjection;
 
 use Liip\ImagineBundle\DependencyInjection\Factory\Loader\FileSystemLoaderFactory;
 use Liip\ImagineBundle\DependencyInjection\Factory\Resolver\WebPathResolverFactory;
-use Liip\ImagineBundle\Tests\AbstractTest;
 use Liip\ImagineBundle\DependencyInjection\LiipImagineExtension;
+use Liip\ImagineBundle\Tests\AbstractTest;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\Yaml\Parser;
 use Symfony\Component\HttpKernel\Kernel;
+use Symfony\Component\Yaml\Parser;
 
 /**
  * @covers Liip\ImagineBundle\DependencyInjection\Configuration
@@ -42,13 +51,10 @@ class LiipImagineExtensionTest extends AbstractTest
         $this->assertHasDefinition('liip_imagine.controller');
         $this->assertDICConstructorArguments(
             $this->containerBuilder->getDefinition('liip_imagine.controller'),
-            array(
-                new Reference('liip_imagine.data.manager'),
-                new Reference('liip_imagine.filter.manager'),
-                new Reference('liip_imagine.cache.manager'),
-                new Reference('liip_imagine.cache.signer'),
+            [
+                new Reference('liip_imagine.service.imagine_service'),
                 new Reference('logger', ContainerInterface::IGNORE_ON_INVALID_REFERENCE),
-            )
+            ]
         );
     }
 
