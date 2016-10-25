@@ -17,7 +17,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 /**
  * @covers Liip\ImagineBundle\LiipImagineBundle
  */
-class LiipImagineBundleTest extends \Phpunit_Framework_TestCase
+class LiipImagineBundleTest extends \PHPUnit_Framework_TestCase
 {
     public function testSubClassOfBundle()
     {

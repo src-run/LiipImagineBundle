@@ -24,7 +24,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 /**
  * @covers Liip\ImagineBundle\DependencyInjection\Configuration
  */
-class ConfigurationTest extends \Phpunit_Framework_TestCase
+class ConfigurationTest extends \PHPUnit_Framework_TestCase
 {
     public function testImplementsConfigurationInterface()
     {

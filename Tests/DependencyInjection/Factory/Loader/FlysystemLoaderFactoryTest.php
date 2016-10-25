@@ -20,7 +20,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
  * @requires PHP 5.4
  * @covers Liip\ImagineBundle\DependencyInjection\Factory\Loader\FlysystemLoaderFactory<extended>
  */
-class FlysystemLoaderFactoryTest extends \Phpunit_Framework_TestCase
+class FlysystemLoaderFactoryTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {

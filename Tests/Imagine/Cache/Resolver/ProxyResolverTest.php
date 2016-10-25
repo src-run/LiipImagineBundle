@@ -18,7 +18,7 @@ use Liip\ImagineBundle\Model\Binary;
 /**
  * @covers Liip\ImagineBundle\Imagine\Cache\Resolver\ProxyResolver
  */
-class ProxyResolverTest extends \Phpunit_Framework_TestCase
+class ProxyResolverTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var ResolverInterface

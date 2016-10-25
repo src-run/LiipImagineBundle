@@ -1,0 +1,4 @@
+---
+
+coverage_clover : var/build/coverage.xml
+json_path       : var/build/coverage-upload.json

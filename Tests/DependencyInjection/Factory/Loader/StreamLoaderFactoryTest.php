@@ -19,7 +19,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 /**
  * @covers Liip\ImagineBundle\DependencyInjection\Factory\Loader\StreamLoaderFactory<extended>
  */
-class StreamLoaderFactoryTest extends \Phpunit_Framework_TestCase
+class StreamLoaderFactoryTest extends \PHPUnit_Framework_TestCase
 {
     public function testImplementsLoaderFactoryInterface()
     {

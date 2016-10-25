@@ -19,7 +19,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 /**
  * @covers Liip\ImagineBundle\DependencyInjection\Factory\Loader\FileSystemLoaderFactory<extended>
  */
-class FileSystemLoaderFactoryTest extends \Phpunit_Framework_TestCase
+class FileSystemLoaderFactoryTest extends \PHPUnit_Framework_TestCase
 {
     public function testImplementsLoaderFactoryInterface()
     {

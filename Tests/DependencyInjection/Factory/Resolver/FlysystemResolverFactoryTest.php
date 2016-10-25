@@ -19,7 +19,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 /**
  * @covers Liip\ImagineBundle\DependencyInjection\Factory\Resolver\FlysystemResolverFactory<extended>
  */
-class FlysystemResolverFactoryTest extends \Phpunit_Framework_TestCase
+class FlysystemResolverFactoryTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {

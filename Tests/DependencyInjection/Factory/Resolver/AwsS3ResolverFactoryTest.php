@@ -20,7 +20,7 @@ use Symfony\Component\HttpKernel\Kernel;
 /**
  * @covers Liip\ImagineBundle\DependencyInjection\Factory\Resolver\AwsS3ResolverFactory<extended>
  */
-class AwsS3ResolverFactoryTest extends \Phpunit_Framework_TestCase
+class AwsS3ResolverFactoryTest extends \PHPUnit_Framework_TestCase
 {
     public function testImplementsResolverFactoryInterface()
     {

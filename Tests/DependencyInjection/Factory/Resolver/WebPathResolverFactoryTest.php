@@ -19,7 +19,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 /**
  * @covers Liip\ImagineBundle\DependencyInjection\Factory\Resolver\WebPathResolverFactory<extended>
  */
-class WebPathResolverFactoryTest extends \Phpunit_Framework_TestCase
+class WebPathResolverFactoryTest extends \PHPUnit_Framework_TestCase
 {
     public function testImplementsResolverFactoryInterface()
     {
